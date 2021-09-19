@@ -90,19 +90,6 @@ def readline(filename):
                         break
                     num1+=1
         print(cases)
-        '''
-        nums1=num=0
-        for lines in data:
-            num+=1
-            if "if" in lines:
-                nums1=num
-                #print(nums1)
-                while(nums1<len(data)):
-                    #print(data)
-                    if 'else' in data[nums1]:
-                        ies+=1
-                    nums1+=1
-        '''
         num = nums1 = 0
         ies=ieis=0
         lenn=len(data)
