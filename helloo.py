@@ -1,10 +1,11 @@
 def readline(filename):
     with open(filename, 'r', encoding='utf-8', errors='ignore') as fd:
+        
         data = fd.readlines()
-        num=0
-        total = ints = breaks = returns = elses = ifs = defaults = switchs = doubles = longs = elses = dos = cases = 0
+        num=nums=0
+        total = ints = breaks = returns = elses = ifs = defaults = switchs = doubles = longs = elses = dos = cases = ies=ieis=0
         # lines in fd.readlines()
-        for lines in data:
+        for lines in data:   #total计数
             #print(lines,cases)
             if "break" in lines:
                 total = total + 1
@@ -76,7 +77,7 @@ def readline(filename):
                 total = total + 1
         print("total num:", total)  
         print("switch num:", switchs)  
-        for lines in data:
+        for lines in data:  #switch-case计数
             num+=1
             if "switch" in lines:
                 num1=num
@@ -89,6 +90,42 @@ def readline(filename):
                         break
                     num1+=1
         print(cases)
+        '''
+        nums1=num=0
+        for lines in data:
+            num+=1
+            if "if" in lines:
+                nums1=num
+                #print(nums1)
+                while(nums1<len(data)):
+                    #print(data)
+                    if 'else' in data[nums1]:
+                        ies+=1
+                    nums1+=1
+        '''
+        num = nums1 = 0
+        ies=ieis=0
+        lenn=len(data)
+        for lines in data:
+            num += 1
+            if "if" in lines and "else if" not in lines:
+                #print("find a if")
+                flag = 0  # 0:if-else 1:if-else-if
+                suojin = lines.find("if")
+                for nums1 in range(num,lenn):
+                    if "else" in data[nums1] and data[nums1].find("else") == suojin:
+                        if "else if" in data[nums1]:
+                            # print("find an else if")
+                            flag = 1
+                        else:
+                            # print("find an else")
+                            if flag == 0:
+                                ies += 1
+                            else:
+                                ieis += 1
+                            break
+        print("if-else num:", ies)
+        print("if-else-if num:", ieis)
         fd.close()
         
 filename, level = input().split()
