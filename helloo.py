@@ -4,9 +4,8 @@ def readline(filename):
         data = fd.readlines()
         num=nums=0
         total = ints = breaks = returns = elses = ifs = defaults = switchs = doubles = longs = elses = dos = cases = ies=ieis=0
-        # lines in fd.readlines()
+        
         for lines in data:   #total计数
-            #print(lines,cases)
             if "break" in lines:
                 total = total + 1
             if "auto" in lines:
@@ -25,7 +24,6 @@ def readline(filename):
                 total = total + 1
             if "else" in lines:
                 total = total + 1
-                # elses=elses+1
             if "enum" in lines:
                 total = total + 1
             if "extern" in lines:
@@ -62,7 +60,6 @@ def readline(filename):
                 switchs = switchs + 1
             if "case" in lines:
                 total = total + 1
-                #cases = cases + 1
             if "while" in lines:
                 total = total + 1
             if "volatile" in lines:
@@ -96,16 +93,13 @@ def readline(filename):
         for lines in data:
             num += 1
             if "if" in lines and "else if" not in lines:
-                #print("find a if")
                 flag = 0  # 0:if-else 1:if-else-if
                 suojin = lines.find("if")
                 for nums1 in range(num,lenn):
                     if "else" in data[nums1] and data[nums1].find("else") == suojin:
                         if "else if" in data[nums1]:
-                            # print("find an else if")
                             flag = 1
                         else:
-                            # print("find an else")
                             if flag == 0:
                                 ies += 1
                             else:
