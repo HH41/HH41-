@@ -5,6 +5,19 @@ def readline(filename):
         num=nums=0
         total = ints = breaks = returns = elses = ifs = defaults = switchs = doubles = longs = elses = dos = cases = ies=ieis=0
         
+        for lines in data:
+            if '//' in lines:    #删除单行注释
+                temp = lines.index('//')
+                lines = lines[:temp]
+            if '/*' in lines:   #删除多行注释
+                first_lines = lines.index(line)
+                for new_lines in lines[first_line:]:
+                    if '*/' not in new_line:
+                        del lines[first_line]
+                    else:
+                        del lines[first_line]
+                        break
+
         for lines in data:   #total计数
             if "break" in lines:
                 total = total + 1
