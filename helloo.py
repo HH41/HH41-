@@ -90,10 +90,10 @@ def readline(filename):
         num = nums1 = 0
         ies=ieis=0
         lenn=len(data)
-        for lines in data:
+        for lines in data:  #if-else 与 if-else-if 计数
             num += 1
             if "if" in lines and "else if" not in lines:
-                flag = 0  # 0:if-else 1:if-else-if
+                flag = 0  # 0:if-else     1:if-else-if
                 suojin = lines.find("if")
                 for nums1 in range(num,lenn):
                     if "else" in data[nums1] and data[nums1].find("else") == suojin:
@@ -108,6 +108,6 @@ def readline(filename):
         print("if-else num:", ies)
         print("if-else-if num:", ieis)
         fd.close()
-        
+
 filename, level = input().split()
 readline(filename)
