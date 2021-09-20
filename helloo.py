@@ -18,7 +18,7 @@ def readline(filename):
                         del lines[first_line]
                         break
 
-        for lines in data:   #total计数
+        #for lines in data:   #total计数
             if "break" in lines:
                 total = total + 1
             if "auto" in lines:
