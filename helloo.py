@@ -38,7 +38,6 @@ def readline(filename):
                 total = total + 1
             if "int" in lines:
                 total = total + 1
-                ints = ints + 1
             if "long" in lines:
                 total = total + 1
             if "register" in lines:
